@@ -60,10 +60,10 @@ module Jekyll
       @site = site
       @base = base
       @dir  = category_dir
-      @name = 'atom.xml'
+      @name = 'feed.json'
       self.process(@name)
       # Read the YAML data from the layout page.
-      self.read_yaml(File.join(base, '_includes/custom'), 'category_feed.xml')
+      self.read_yaml(File.join(base, '_includes/custom'), 'feed.json')
       self.data['category']    = category
       # Set the title for this page.
       title_prefix             = site.config['category_title_prefix'] || 'Category: '
