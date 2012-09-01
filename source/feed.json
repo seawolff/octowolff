@@ -1,0 +1,23 @@
+---
+layout: nil
+---
+
+{
+  "Site" : {
+    "Title" : {{site.title}},
+    "Author" : {{site.author}},
+    {% if site.email %}"Email" : {{ site.email }},{% endif %}
+    "URL" : {{site.url}},
+    "Feed URL" : {{ site.url }}/{{ page.feed_url }},
+    "Updated" : {{ site.time | date_to_xmlschema }}
+  }, 
+  "Page" : {
+    {% for post in site.categories[page.category] limit: 10 %}
+    "Title" : {{ post.title | cdata_escape }},
+    "Link" : {{ site.url }}{{ post.url }},
+    "Updated" : {{ post.date | date_to_xmlschema }},
+    "ID" : {{ site.url }}{{ post.id }},
+    "Content" : {{ post.content | expand_urls: site.url | markdownify | cdata_escape }}
+    {% endfor %}
+  }
+}
