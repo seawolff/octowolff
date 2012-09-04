@@ -34,36 +34,53 @@ For those not familiar with CSS compilers such as Less or Sass, mixins allow a b
 
 To do this in Sass I simply just created two breakpoint mixins like so:
 
-{% codeblock lang:SASS Breakpoint Mixins %}
-
-	//all global and mobile-specific styling
-
-	@mixin sevensixtyeight
-		//all min-width:768px styles go here
-
-	@mixin .ninesixty
-		//all min-width:960px styles go here
-
-{% endcodeblock %}
+<figure class='code'><figcaption><span>Breakpoint Mixins </span></figcaption>
+ <div class='highlight'><table><tbody><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='SASS'><span class='line'> <span class='c1'>//all global and mobile-specific styling</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@mixin</span><span class='nf'> sevensixtyeight</span>
+</span><span class='line'>      <span class='c1'>//all min-width:768px styles go here</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@mixin</span> <span class='nc'>.ninesixty</span>
+</span><span class='line'>      <span class='c1'>//all min-width:960px styles go here</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
 
 Instead of placing my styles in a media query like so: ```@media (min-width:x) { ... }``` I could place all my breakpointed styles into the mixins I had created above which would would be rendered into the stylesheet when and where I needed. Simple.
 
 Next I created my actual compiler where I would import the mixins at the needed breakpoints and repurpose them within the scope of my ```.oldie``` class.
 
-{% codeblock lang:SASS Simple Oldie Compiler %}
-	//Compiler
-	//No breakpoint specific styles here
-
-	@media(min-width:768px)
-		@include sevensixtyeight
-
-	@media(min-width:960px)
-		@include ninesixty
-
-	.oldie
-		@include sevensixtyeight
-		@include ninesixty
-{% endcodeblock %}
+<figure class='code'><figcaption><span>Simple Oldie Compiler </span></figcaption>
+ <div class='highlight'><table><tbody><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='SASS'><span class='line'> <span class='c1'>//Compiler</span>
+</span><span class='line'>  <span class='c1'>//No breakpoint specific styles here</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span><span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:768px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> sevensixtyeight</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span><span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:960px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> ninesixty</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='nc'>.oldie</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> sevensixtyeight</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> ninesixty</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
 
 BOOM! I was done. Everything I wrote in my ```.sevensixtyeight()``` and ```.ninesixty()``` mixins could be imported simultaneously into my ```.oldie``` class with ease. 
 
@@ -73,32 +90,56 @@ I was very content with this functionality. So much so that my colleages and I b
 
 A few weeks ago <a href='https://twitter.com/gesa' title='@gesa'>@gesa</a> shared a gist with me of how she had included HD, retina, and mobile-specific media queries into her oldie compiler. Stupid simple. Again I wanted to kick myself in the face that I hadn't thought of this myself. The solution was simple just add the following optional mixins: ```.foureighty()```, ```.tweleveeighty()```, ```.nineteentwenty()```, and ```.retina()```.
 
-{% codeblock lang:SASS Extended Oldie Compiler %}
-	//Compiler
-	//No breakpoint specific styles here
-
-	@media (min-width:480px)
-		@include foureighty
-
-	@media(min-width:768px)
-		@include sevensixtyeight
-
-	@media(min-width:960px)
-		@include ninesixty
-
-	@media(min-width:1280px)
-		@include tweleveeighty
-
-	@media(min-width:1920px)
-		@include nineteentwenty
-
-	@media (-webkit-min-device-pixel-ratio : 1.5),(min-device-pixel-ratio : 1.5)
-		@include retina
-
-	.oldie
-		@include sevensixtyeight
-		@include ninesixty
-{% endcodeblock %}
+<figure class='code'><figcaption><span>Extended Oldie Compiler </span></figcaption>
+ <div class='highlight'><table><tbody><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='SASS'><span class='line'> <span class='c1'>//Compiler</span>
+</span><span class='line'>  <span class='c1'>//No breakpoint specific styles here</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span> <span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:480px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> foureighty</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span><span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:768px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> sevensixtyeight</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span><span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:960px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> ninesixty</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span><span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:1280px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> tweleveeighty</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span><span class='o'>(</span><span class='nt'>min-width</span><span class='nd'>:1920px</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> nineteentwenty</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='k'>@media</span> <span class='o'>(</span><span class='nt'>-webkit-min-device-pixel-ratio</span> <span class='nd'>:</span> <span class='nt'>1</span><span class='nc'>.5</span><span class='o'>),(</span><span class='nt'>min-device-pixel-ratio</span> <span class='nd'>:</span> <span class='nt'>1</span><span class='nc'>.5</span><span class='o'>)</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> retina</span>
+</span><span class='line'>
+</span><span class='line'>  <span class='nc'>.oldie</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> sevensixtyeight</span>
+</span><span class='line'>      <span class='k'>@include</span><span class='nd'> ninesixty</span>
+</span></code></pre></td></tr></tbody></table></div></figure>
 
 None of these new media queries need to be required since by default none of these mixins are necessarily needed in the ```.oldie``` class. However, it's good to have them included just in case you may need to re-purpose them later in your application. 
 
