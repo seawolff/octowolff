@@ -12,12 +12,14 @@ layout: nil
     "Updated" : "{{ site.time | date_to_xmlschema }}"
   }, 
   "Page" : {
-    {% for post in site.categories[page.category] limit: 10 %}
-    "Title" : "{{ post.title | cdata_escape }}",
+    "posts":[
+    {% for post in site.posts limit: 20 %}
+    {"Title" : "{{ post.title | cdata_escape }}",
     "Link" : "{{ site.url }}{{ post.url }}",
     "Updated" : "{{ post.date | date_to_xmlschema }}",
     "ID" : "{{ site.url }}{{ post.id }}",
-    "Content" : "{{ post.content | expand_urls: site.url | markdownify | cdata_escape }}"
+    "Content":"{{ post.content | expand_urls: site.url | markdownify | cdata_escape | strip_newlines }}"}{% if forloop.last %}{% else %},{% endif %}
     {% endfor %}
+    ]
   }
 }
