@@ -18,7 +18,7 @@ Previously my thought process to solving this was the following:
 	
 _"Simple! I'll just copy all my styles in my breakpoints and paste them seperately by prepending an .oldie class to the selectors."_
 
-This approach worked and all in all was fine. However, like most developers I became lazy. I got tired of having to copy new styles I had written in a media query and pasting it where I could scope it with an ```.oldie``` class. Even when I was writing my styles in Less it was still a burden to copy my styles in both my 768 and 960 breakpoints and paste them in the scope of my ```.oldie``` class. It was evident I needed another solution.
+This approach worked and all in all was fine. However, like most developers I became lazy. I got tired of copying styles I had written in media queries and pasting them where I could scope them with an ```.oldie``` class. Even when I was writing my styles in Less it was still a burden to copy my styles in both my 768 and 960 breakpoints and paste them in the scope of my ```.oldie``` class. It was evident I needed another solution.
 
 ##The Lightbulb Moment
 
@@ -47,11 +47,11 @@ To do this in Sass I simply just created two breakpoint mixins like so:
 </span><span class='line'>  <span class='k'>@mixin</span><span class='nf'> sevensixtyeight</span>
 </span><span class='line'>      <span class='c1'>//all min-width:768px styles go here</span>
 </span><span class='line'>
-</span><span class='line'>  <span class='k'>@mixin</span> <span class='nc'>.ninesixty</span>
+</span><span class='line'>  <span class='k'>@mixin</span> <span class='nc'>ninesixty</span>
 </span><span class='line'>      <span class='c1'>//all min-width:960px styles go here</span>
 </span></code></pre></td></tr></tbody></table></div></figure>
 
-Instead of placing my styles in a media query like so: ```@media (min-width:x) { ... }``` I could place all my breakpointed styles into the mixins I had created above which would would be rendered into the stylesheet when and where I needed. Simple.
+Instead of placing my styles in a media query like so: ```@media (min-width:x) { ... }``` I could place all my breakpointed styles into the mixins I had created above which would be rendered into the stylesheet when and where I needed. Simple.
 
 Next I created my actual compiler where I would import the mixins at the needed breakpoints and repurpose them within the scope of my ```.oldie``` class.
 
@@ -88,7 +88,7 @@ BOOM! I was done. Everything I wrote in my ```.sevensixtyeight()``` and ```.nine
 
 I was very content with this functionality. So much so that my colleages and I began using this model immediately without really discussing the ways in which we planned to extend the functionality. I mean why would we? All of our current problems had been solved.
 
-A few weeks ago <a href='https://twitter.com/gesa' title='@gesa'>@gesa</a> shared a gist with me of how she had included HD, retina, and mobile-specific media queries into her oldie compiler. Stupid simple. Again I wanted to kick myself in the face that I hadn't thought of this myself. The solution was simple just add the following optional mixins: ```.foureighty()```, ```.tweleveeighty()```, ```.nineteentwenty()```, and ```.retina()```.
+A few weeks ago <a href='https://twitter.com/gesa' title='@gesa'>@gesa</a> shared a gist with me of how she had included HD, retina, and mobile-specific media queries into her oldie compiler. Stupid simple. Again I wanted to kick myself in the face that I hadn't thought of this myself. The solution was simple just add the following optional mixins: ```.foureighty()```, ```.tweleveeighty()```, ```.nineteentwenty()```, ```.retina()``` in Less and ```@include foureighty```, ```@include tweleveeighty```, ```@include nineteentwenty```, ```@include retina``` in Sass.
 
 <figure class='code'><figcaption><span>Extended Oldie Compiler </span></figcaption>
  <div class='highlight'><table><tbody><tr><td class='gutter'><pre class='line-numbers'><span class='line-number'>1</span>
@@ -141,7 +141,7 @@ A few weeks ago <a href='https://twitter.com/gesa' title='@gesa'>@gesa</a> share
 </span><span class='line'>      <span class='k'>@include</span><span class='nd'> ninesixty</span>
 </span></code></pre></td></tr></tbody></table></div></figure>
 
-None of these new media queries need to be required since by default none of these mixins are necessarily needed in the ```.oldie``` class. However, it's good to have them included just in case you may need to re-purpose them later in your application. 
+None of these new media queries are required since by default since none of these mixins are necessarily needed in the ```.oldie``` class. However, it's good to have them included just in case you may need to re-purpose them later in your application. 
 
 ##Pros & Cons
 
@@ -156,7 +156,7 @@ None of these new media queries need to be required since by default none of the
 
 ## Final Thoughts
 
-One last thought. The other day I was reading a <a href='http://simurai.com/post/30451824480/media-query-splitting' title='great article'>great article</a> regarding 'media query splitting' written by <a href='https://twitter.com/simurai' title='@simurai'>@simurai</a>. I rather liked this approach to organization other then the fact that it didn't work for ```.oldie``` specific styling. The Oldie Compiler model solves this issue and makes this a very viable option. 
+One last thought. The other day I was reading a <a href='http://simurai.com/post/30451824480/media-query-splitting' title='great post'>great post</a> regarding 'media query splitting' written by <a href='https://twitter.com/simurai' title='@simurai'>@simurai</a>. I rather liked this  organizational approach other then the fact that it didn't work for ```.oldie``` specific styling. The Oldie Compiler model solves this issue and makes this a very viable option. 
 
 ## More Info
 
