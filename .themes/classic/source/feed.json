@@ -15,9 +15,9 @@ layout: nil
     "posts":[
     {% for post in site.posts limit: 20 %}
     {"Title" : "{{ post.title | cdata_escape }}",
-    "Link" : "{{ site.url }}{{ post.url }}",
+    "Link" : "{{ site.url }}{{site.root}}{{ post.url }}",
     "Updated" : "{{ post.date | date_to_xmlschema }}",
-    "ID" : "{{ site.url }}{{ post.id }}",
+    "ID" : "{{ site.url }}{{site.root}}{{ post.id }}",
     "Content":"{{ post.content | expand_urls: site.url | markdownify | cdata_escape | strip_newlines }}"}{% if forloop.last %}{% else %},{% endif %}
     {% endfor %}
     ]
