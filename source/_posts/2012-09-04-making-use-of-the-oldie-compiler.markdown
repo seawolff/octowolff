@@ -26,6 +26,8 @@ After several over-complicated attempts I realized re-inventing the wheel wasn't
 
 _Cue the mother-fucking lightbulb!_
 
+<!-- more -->
+
 All I had to do was write my breakpoint specific styling in several mixins and then I could import them in the ```.oldie``` class and specified media queries at the bottom of the page. The solution was so simple I wanted to kick myself in the face.
 
 ##The Implimentation
