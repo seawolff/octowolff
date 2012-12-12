@@ -1,0 +1,3 @@
+html,body>header,body>nav,#main,#content .blog-index,.collapse-sidebar aside.sidebar,.collapse-sidebar .toggle-sidebar,body>footer{background:white;}
+body>header h1 a,body>header h1 a:visited,body>header h1 a:hover{color:black;}
+body>nav{border-top:none;border-bottom-color:#ECECEC;}
