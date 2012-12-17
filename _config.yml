@@ -3,8 +3,8 @@
 # ----------------------- #
 
 url: http://chriswolffdevelopment.com
-title: Chris Wolff
-subtitle: I'm Chris Wolff. I enjoy making things. 
+title: Hi I'm Wolff.
+subtitle: I Love Building Things. 
 author: Wolff
 simple_search: https://www.google.com/search?q=Chris+Wolff
 description:
@@ -58,7 +58,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user: seawolff
+github_user: 
 github_repo_count: 12
 github_show_profile_link: true
 github_skip_forks: true
