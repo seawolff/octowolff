@@ -4,7 +4,7 @@
   <title><![CDATA[Hi I'm Wolff.]]></title>
   <link href="http://chriswolffdevelopment.com/atom.xml" rel="self"/>
   <link href="http://chriswolffdevelopment.com/"/>
-  <updated>2013-04-08T10:00:38-05:00</updated>
+  <updated>2013-04-09T23:13:21-05:00</updated>
   <id>http://chriswolffdevelopment.com/</id>
   <author>
     <name><![CDATA[Wolff]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[test post]]></title>
+    <link href="http://chriswolffdevelopment.com/articles/2013/04/09/test/"/>
+    <updated>2013-04-09T23:12:00-05:00</updated>
+    <id>http://chriswolffdevelopment.com/articles/2013/04/09/test</id>
+    <content type="html"><![CDATA[<h2>Hello World</h2>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How web development could take a lesson from urban planning]]></title>

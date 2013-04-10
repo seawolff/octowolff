@@ -5,10 +5,16 @@
     
     "URL" : "http://chriswolffdevelopment.com",
     "Feed URL" : "http://chriswolffdevelopment.com/articles/categories/html5-boilerplate/feed.json",
-    "Updated" : "2013-04-08T10:00:38-05:00"
+    "Updated" : "2013-04-09T23:13:21-05:00"
   }, 
   "Page" : {
     "posts":[
+    
+    {"Title" : "test post",
+    "Link" : "http://chriswolffdevelopment.com/articles/2013/04/09/test/",
+    "Updated" : "2013-04-09T23:12:00-05:00",
+    "ID" : "http://chriswolffdevelopment.com/articles/2013/04/09/test",
+    "Content":"<h2>Hello World</h2>"},
     
     {"Title" : "How web development could take a lesson from urban planning",
     "Link" : "http://chriswolffdevelopment.com/articles/2012/10/02/how-app-development-could-learn-from-urban-planning/",
