@@ -1,0 +1,5 @@
+html,body>header,body>nav,body>div>div,#main,#content .blog-index,.collapse-sidebar aside.sidebar,.collapse-sidebar .toggle-sidebar,body>footer{background:white;}
+body,.heading,body>header h1,h1,h2,h3,h4,h5,h6{font-family:"Helvetica Neue",Helvetica,Calibri,Arial,clean,sans-serif;}
+body>header h1 a,body>header h1 a:visited,body>header h1 a:hover{color:black;font-weight:500;}
+body>header h2{color:#5E5C5C;}
+body>nav{border-top:none;border-bottom-color:#ECECEC;}
